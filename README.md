@@ -35,13 +35,13 @@ The assessment simulated the compromise of a small SME environment. I began with
 
 I identified hosts on the assessment network and used Nmap to enumerate services, operating systems and exposed vulnerabilities.
 
-![Desktop service enumeration](01-desktop-service-enumeration.png)
+![Desktop service enumeration](evidence/01-desktop-service-enumeration.png)
 
 *Initial service and operating-system enumeration of the Windows workstation using Nmap.*
 
 The Windows workstation was identified as Windows 7 SP1 with SMBv1 exposure and MS17-010.
 
-![MS17-010 identification](02-ms17-010-identification.png)
+![MS17-010 identification](evidence/02-ms17-010-identification.png)
 
 *Nmap vulnerability scanning identified an SMBv1 implementation vulnerable to MS17-010.*
 
@@ -49,7 +49,7 @@ The Windows workstation was identified as Windows 7 SP1 with SMBv1 exposure and 
 
 After identifying MS17-010, I used the relevant Metasploit module to test exploitation of the workstation.
 
-![Metasploit exploitation](03-metasploit-exploitation.png)
+![Metasploit exploitation](evidence/03-metasploit-exploitation.png)
 
 *Successful controlled exploitation of the vulnerable workstation using Metasploit.*
 
@@ -65,13 +65,13 @@ Publicly accessible information associated with the server was used to identify 
 
 A controlled dictionary-based password audit demonstrated that the identified SSH account used a weak password.
 
-![SSH credential audit](04-ssh-credential-audit.png)
+![SSH credential audit](evidence/04-ssh-credential-audit.png)
 
 *Authorised dictionary-based SSH password testing demonstrated the weakness of the account credentials.*
 
 The recovered credentials allowed authenticated SSH access to the server.
 
-![Linux SSH access](05-linux-ssh-access.png)
+![Linux SSH access](evidence/05-linux-ssh-access.png)
 
 *Authenticated SSH access to the Linux server after successful credential testing.*
 
@@ -89,11 +89,11 @@ The exercise included:
 - Privileged access testing
 - Controlled persistence testing
 
-![Reverse shell testing](06-reverse-shell-testing.png)
+![Reverse shell testing](evidence/06-reverse-shell-testing.png)
 
 *Weak file permissions on a web-accessible resource were used to demonstrate further post-exploitation through a reverse shell.*
 
-![Password audit and post-exploitation](07-password-audit-post-exploitation.png)
+![Password audit and post-exploitation](evidence/07-password-audit-post-exploitation.png)
 
 *Password auditing with John the Ripper demonstrated the additional impact of weak credential security.*
 
@@ -151,13 +151,14 @@ The underlying work has not been rewritten or expanded to claim testing that was
 ```text
 .
 ├── README.md
-├── 01-desktop-service-enumeration.png
-├── 02-ms17-010-identification.png
-├── 03-metasploit-exploitation.png
-├── 04-ssh-credential-audit.png
-├── 05-linux-ssh-access.png
-├── 06-reverse-shell-testing.png
-├── 07-password-audit-post-exploitation.png
+├── evidence/
+│   ├── 01-desktop-service-enumeration.png
+│   ├── 02-ms17-010-identification.png
+│   ├── 03-metasploit-exploitation.png
+│   ├── 04-ssh-credential-audit.png
+│   ├── 05-linux-ssh-access.png
+│   ├── 06-reverse-shell-testing.png
+│   └── 07-password-audit-post-exploitation.png
 ├── findings/
 │   └── findings-summary.md
 └── docs/
